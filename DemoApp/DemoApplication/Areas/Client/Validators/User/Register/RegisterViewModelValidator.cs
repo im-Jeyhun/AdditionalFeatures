@@ -10,6 +10,7 @@ namespace DemoApplication.Areas.Client.Validators.User.Register
         public RegisterViewModelValidator(DataContext dataContext)
         {
             _dataContext = dataContext;
+
             RuleFor(u => u.Email).Must(IsEmailUnique).WithMessage("Email already taked");
         }
 

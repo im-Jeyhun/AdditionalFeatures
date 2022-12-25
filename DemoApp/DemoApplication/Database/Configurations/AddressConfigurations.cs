@@ -5,18 +5,13 @@ using System.Reflection.Emit;
 
 namespace DemoApplication.Database.Configurations
 {
-    public class UserConfigurations : IEntityTypeConfiguration<User>
+    public class AddressConfigurations : IEntityTypeConfiguration<Address>
     {
-        public void Configure(EntityTypeBuilder<User> builder)
+        public void Configure(EntityTypeBuilder<Address> builder)
         {
             builder
-               .ToTable("Users")
-               .HasIndex(u => u.Email).IsUnique();
+               .ToTable("Address");
 
-            builder
-            .HasOne(u => u.Basket)
-            .WithOne(b => b.User)
-            .HasForeignKey<Basket>(u => u.UserId);
         }
     }
 }
